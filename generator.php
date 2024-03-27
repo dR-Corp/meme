@@ -1,0 +1,7 @@
+<?php 
+
+
+
+?>
+
+WELCOME TO THE GENERATOR

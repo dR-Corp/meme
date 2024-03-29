@@ -1,0 +1,232 @@
+/*IMPORTS*/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:400,400i,500|Lobster:400|Source+Code+Pro:400';
+/*MAIN*/
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  padding: 45px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+  font-weight: 400;
+  color: dimgrey;
+}
+
+/*HEADERS AND TEXT*/
+h2,
+h3 {
+  margin: 15px 0;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+h1 {
+  margin: 0 0;
+  font-weight: 400;
+  font-size: 45px;
+  padding: 10px;
+  color: dimgray;
+  border: 1px solid dimgray;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .meme {
+  
+} */
+
+
+p {
+    margin: 10px 0;
+    color: dimgrey;
+}
+  
+span {
+    color: dimgrey;
+}
+  
+code {    
+    font-family: "Source Code Pro";
+    color: black;
+    background: #ededed;
+    padding: 0px 5px 0px 5px;
+}
+  
+pre {
+    padding: 5px;
+    overflow: auto;
+    background: #ededed;
+}
+pre code {
+    padding: 0px;
+}
+  
+img {
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+    display: block;
+    /* margin: 1em auto; */
+}
+  
+  /*INPUT METHODS*/
+button,
+.btn {
+    padding: 15px;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    border: 0px solid dimgrey;
+    background: whitesmoke;
+    color: dimgrey;
+    outline: none;
+    transition: all 0.25s, transform 0.1s;
+}
+.btn-sm {
+    padding: 5px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    border: 0px solid dimgrey;
+    background: whitesmoke;
+    color: dimgrey;
+    outline: none;
+    transition: all 0.25s, transform 0.1s;
+    font-size: 2rem;
+    float: right;
+    cursor: pointer;
+}
+  
+button:hover,
+.btn:hover {
+    background: black;
+    color: whitesmoke;
+}
+button:active,
+.btn:active {
+    background: black;
+    transform: scale(0.8);
+}
+button>i,
+.btn>i{
+    color: dimgrey;
+}
+
+a {
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:hover {
+    text-decoration: underline;
+}
+  
+/*MISC*/
+.inline {
+    display: inline-block;
+}
+  
+.block {
+    display: block;
+}
+  
+.hidden {
+    display: none;
+}
+
+
+/*LAYOUT*/
+.box {
+    display: block;
+    width: 100%;
+  }
+  .box::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+  /* .box > div {
+    display: inline-block;
+    overflow: auto;
+    float: left;
+  } */
+  .range {
+      width: 50%;
+  }
+  .action {
+    width: 50%;
+  }
+  .actions {
+    width: 33.33%;
+  }
+  .box > div:nth-child(odd) {
+    padding-right: 0.5em;
+  }
+  .box > div:nth-child(even) {
+    padding-left: 0.5em;
+  }
+  .canvasWrapper {
+      width: 60%;
+      padding: 30px;
+      border: 5px dashed dimgray;
+      margin-top: 25px;
+      min-height: 600px;
+      max-height: 600px;
+  }
+  .settingsDiv {
+      width: 40%;
+      padding-left: 50px;
+  }
+  
+  /*MEDIA*/
+  @media only screen and (max-width: 720px) {
+    body {
+      padding: 15px;
+    }
+  
+    .box > div {
+      display: block;
+      width: 100%;
+      padding: 0 0 !important;
+      float: none;
+    }
+  }
+  .fullwidth {
+    width: 100%;
+    max-width: 500px;
+    max-height: 800px;
+  }
+  
+  #imgFile {
+    display: none;
+  }
+  
+  input[type=text], input[type=range] {
+    width: 100%;
+  }
+  
+  h3 > i.fa {
+    margin-right: 0.2em;
+  }

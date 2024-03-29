@@ -2,18 +2,11 @@
 
 class Database {
 
-    private $host;
-    private $dbname;
-    private $username;
-    private $password;
+    private $host = "localhost";
+    private $dbname = "meme";
+    private $username = "root";
+    private $password = "154826";
     public $conn;
-
-    public function __construct ($dbname, $host = "localhost", $username = "root", $password = "") {
-        $this->host = $host;
-        $this->dbname = $dbname;
-        $this->username = $username;
-        $this->password = $password;
-    }
 
     // Méthode de connexion à la base de données
     public function getConnection(){

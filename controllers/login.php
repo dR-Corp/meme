@@ -4,7 +4,7 @@ session_start();
 include_once '../classes/Database.php';
 include_once '../classes/User.php';
 
-$db = (new Database("meme"))->getConnection();
+$db = (new Database())->getConnection();
 $user = new User($db);
 
 if(isset($_POST["username"]) && isset($_POST["password"])) {

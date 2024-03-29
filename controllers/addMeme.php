@@ -9,11 +9,7 @@ $db = (new Database())->getConnection();
 $meme = new Meme($db);
 $user = $_SESSION["username"];
 
-$data = json_encode([
-    "alert"=> "success",
-    "message"=> "Test successful"
-]);
-file_put_contents("./test.txt", $data);
+file_put_contents("./test.txt", $_POST);
 
 // if(isset($_POST["top_text"]) && isset($_POST["bottom_text"]) && isset($_POST["img"])) {
 

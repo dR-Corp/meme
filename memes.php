@@ -34,6 +34,9 @@ $list_memes = $meme->all($user);
 
         <div class="memes flex">
 
+        <?php if(count($list_memes) == 0): ?>
+            <p>Vous n'avez encore aucun mème</p>
+        <?php else: ?>
             <?php foreach($list_memes as $meme): 
                 $img = $meme["img"];
                 // echo "<pre>"; print_r($meme); exit;
@@ -49,6 +52,7 @@ $list_memes = $meme->all($user);
                 </div>
             </div>
             <?php endforeach; ?>
+        <?php endif; ?>
 
         </div>
         

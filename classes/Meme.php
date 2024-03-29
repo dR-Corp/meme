@@ -11,14 +11,14 @@ class Meme {
 
         $query = "INSERT INTO memes (top_text, bottom_text, top_size, bottom_size, img, source_img, username) VALUES (:top_text, :bottom_text, :top_size, :bottom_size, :img, :source_img, :username)";
         $stmt = $this->conn->prepare($query);
-
+        
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':top_text', $top_text);
         $stmt->bindParam(':bottom_text', $bottom_text);
         $stmt->bindParam(':top_size', $top_size);
         $stmt->bindParam(':bottom_size', $bottom_size);
-        $stmt->bindParam(':img', $image);
-        $stmt->bindParam(':source_img', $original_image);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':source_img', $source_img);
 
         if($stmt->execute())
             return true;

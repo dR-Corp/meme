@@ -148,34 +148,32 @@ document.getElementById('save').onclick = function () {
     // - lancer une requete ajax, vers le serveur
     // - envoyer les données à enregistrer dans la tables memes
 
+    var data = {
+        top_text: textTop,
+        bottom_text: textBottom,
+        top_size: textSizeTop,
+        bottom_size: textSizeBottom,
+        image: img,
+        source_image: ""
+    }
     fetch("http://localhost/meme/controllers/addMeme.php", {
         method: "POST",
         headers: {
-            'content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            "top_text": textTop,
-            "bottom_text": textBottom,
-            "top_size": textSizeTop,
-            "bottom_size": textSizeBottom,
-            "image": img,
-            "source_image": ""
-        })
+        body: JSON.stringify(data)
     })
     .then(res => {
-        if(res.ok) {
-            console.log("Anything good");
-            return res;
-        }
-        else {
-            console.log("An error occure !");
-        }
+        if(res.ok)
+            return res.json();
+        console.log("An error occure !");
     })
     .then(data => {
         console.log(data);
+        alert(data.message);
     })
-    .catch(err => {
-        console.log("Une erreur est survenue, veuillez réessayer");
+    .catch(error => {
+        console.log(error);
     })
 
 };

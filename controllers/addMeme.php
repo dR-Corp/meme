@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {
+    $_SESSION["error"] = "Vous devrez être connecté afin d'effectuer cette requête !";
+    header("Location: ../login.php");
+    exit;
+}
+
 include_once '../classes/Database.php';
 include_once '../classes/User.php';
 include_once '../classes/Meme.php';
@@ -32,11 +38,22 @@ if (isset($data['image']) && !empty($data['image'])) {
     
     $image_name = "meme_".uniqid().'.png';
     $imagePath = '../uploads/'.$image_name;
+
+    //Sauvegarde le l'image source
+    $source_imageData = $data['source_image'];
+    
+    // Convertir l'URL base64 en données binaires
+    $source_imageData = str_replace('data:image/png;base64,', '', $source_imageData);
+    $source_imageData = str_replace(' ', '+', $source_imageData);
+    $source_imageBinary = base64_decode($source_imageData);
+    
+    $source_image_name = "img_".uniqid().'.png';
+    $source_imagePath = '../uploads/'.$source_image_name;
     
     // Écrire les données binaires dans un fichier
     if (file_put_contents($imagePath, $imageBinary) !== false) {
         // on enregistre le meme dans ce cas
-        if($meme->add($top_text, $bottom_text, $top_size, $bottom_size, $image_name, "", $username)) {
+        if($meme->add($top_text, $bottom_text, $top_size, $bottom_size, $image_name, $source_image_name, $username)) {
             $message = 'Meme enregistré avec succès';
         }
         else {
@@ -57,33 +74,6 @@ $response = [
 
 header('Content-Type: application/json');
 echo json_encode($response);
-
-// if(isset($_POST["top_text"]) && isset($_POST["bottom_text"]) && isset($_POST["img"])) {
-
-//     $top_text = $_POST["top_text"];
-//     $bottom_text = $_POST["bottom_text"];
-//     $top_size = $_POST["top_size"];
-//     $bottom_size = $_POST["bottom_size"];
-//     $img = $_POST["img"];
-//     $source_img = $_POST["source_img"];
-//     $username = $user;
-
-//     if($user->register($username, $name, $password)) {
-//         $_SESSION["success"] = "Mème enregistré";
-//         echo json_encode([
-//             "alert"=>"success",
-//             "message"=>"Mème enregistré"
-//         ]);
-//     }
-//     else {
-//         $_SESSION["error"] = "L'enregistrement du mème a echoué !";
-//         echo json_encode([
-//             "alert"=>"error",
-//             "message"=>"Mème non enregistré"
-//         ]);
-//     }
-
-// }
 
 
 ?>

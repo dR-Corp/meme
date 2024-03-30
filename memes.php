@@ -1,15 +1,21 @@
 <?php
-session_start();
+    session_start();
 
-include_once 'classes/Database.php';
-include_once 'classes/User.php';
-include_once 'classes/Meme.php';
+    if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {
+        $_SESSION["error"] = "Vous devrez être connecté afin d'accéder à cette page !";
+        header("Location: login.php");
+        exit;
+    }
 
-$db = (new Database())->getConnection();
-$user = $_SESSION["username"];
+    include_once 'classes/Database.php';
+    include_once 'classes/User.php';
+    include_once 'classes/Meme.php';
 
-$meme = new Meme($db);
-$list_memes = $meme->all($user);
+    $db = (new Database())->getConnection();
+    $user = $_SESSION["username"];
+
+    $meme = new Meme($db);
+    $list_memes = $meme->all($user);
 
 ?>
 <!DOCTYPE html>
@@ -57,8 +63,6 @@ $list_memes = $meme->all($user);
         </div>
         
     </div>
-
-    <script  src="./assets/generator.js"></script>
 
 </body>
 </html>

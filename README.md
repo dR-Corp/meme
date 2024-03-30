@@ -25,5 +25,8 @@ Au lancement de l'application, on ce retrouve au niveau de la page de connexion.
 
 Le fichier ```index.php``` représente le point d'entrée de l'application.
 
+## Aperçu en temps réel
+Le fichier ```assets/generator.js``` est celui dans lequel se trouve le script permettant de gérer la création du mème et d'observer en temps réel la modification de l'image.
+
 ## Sauvegarde des mèmes
-Les images des mèmes sont enregistrées dans le dossier ```uploads/```
+Les images des mèmes sont enregistrées dans le répertoire ```uploads/```. En plus des mèmes on y sauvegarde l'imarge d'origine du mème. Peut être voudrait-on plus tard faire un nouveau mème en utilisant l'image d'un autre mème.

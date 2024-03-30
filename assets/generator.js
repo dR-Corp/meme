@@ -70,6 +70,7 @@ var textBottom = 'Texte de bas';
 var textSizeTop = 10;
 var textSizeBottom = 10;
 var image = document.createElement('img');
+var source_image = "";
 
 image.onload = function (ev) {
     // delete and recreate canvas do untaint it
@@ -87,7 +88,8 @@ document.getElementById('imgFile').onchange = function(ev) {
     var reader = new FileReader();
     reader.onload = function(ev) {
       image.src = reader.result;
-      console.log(image.src);
+      source_image = image.src;
+    //   console.log(image.src);
       // a ce niveau on doit 
       // - uploader sur le serveur, le fichier image original
       // - sauver le nom donné au fichier dans une variable
@@ -139,9 +141,6 @@ document.getElementById('export').onclick = function () {
 
 document.getElementById('save').onclick = function () {
     var img = canvas.toDataURL('image/png');
-    // var link = document.createElement("a");
-    // link.download = 'meme';
-    // link.href = img;
 
     // a ce niveau on doit 
     // - uploader sur le serveur, le fichier image final
@@ -154,7 +153,7 @@ document.getElementById('save').onclick = function () {
         top_size: textSizeTop,
         bottom_size: textSizeBottom,
         image: img,
-        source_image: ""
+        source_image: source_image
     }
     fetch("http://localhost/meme/controllers/addMeme.php", {
         method: "POST",

@@ -51,9 +51,9 @@ h3 {
   flex-wrap: wrap;
 }
 
-/* .meme {
-  
-} */
+.meme {
+  width: 33%;
+}
 
 
 p {
@@ -65,28 +65,12 @@ span {
     color: dimgrey;
 }
   
-code {    
-    font-family: "Source Code Pro";
-    color: black;
-    background: #ededed;
-    padding: 0px 5px 0px 5px;
-}
-  
-pre {
-    padding: 5px;
-    overflow: auto;
-    background: #ededed;
-}
-pre code {
-    padding: 0px;
-}
-  
 img {
     width: auto;
     max-width: 100%;
     max-height: 500px;
     display: block;
-    /* margin: 1em auto; */
+    margin: 1em auto;
 }
   
   /*INPUT METHODS*/

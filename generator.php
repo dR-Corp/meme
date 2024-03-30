@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    
+    if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {
+        $_SESSION["error"] = "Vous devrez être connecté afin d'accéder à cette page !";
+        header("Location: login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

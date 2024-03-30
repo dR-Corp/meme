@@ -1,5 +1,8 @@
 # MINI PROJET : GENERATEUR DE MEME
 
+## Aperçu
+![alt text](image.png)
+
 ## Base de données
 Voici le code SQL du schéma de la base de données :
 ```SQL

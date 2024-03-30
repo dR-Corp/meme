@@ -49,10 +49,11 @@ h3 {
 .flex {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .meme {
-  width: 33%;
+  width: 32%;
 }
 
 
@@ -70,7 +71,6 @@ img {
     max-width: 100%;
     max-height: 500px;
     display: block;
-    margin: 1em auto;
 }
   
   /*INPUT METHODS*/
